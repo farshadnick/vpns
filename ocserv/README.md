@@ -29,3 +29,6 @@ docker exec -ti ocserv ocpasswd -c /etc/ocserv/ocpasswd -u testUserName
 ```
 docker exec -ti ocserv cat /etc/ocserv/ocpasswd
 ```
+
+# Note 
+**in ocserv.conf you have to disable isolate-workers  other wise your client keep disconnectiong**
