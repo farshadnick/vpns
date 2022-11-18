@@ -7,3 +7,5 @@ services:
     ports:
     - 1080:443/tcp
     - 1080:443/udp
+    volumes:
+    - ./conf/:/etc/ocserv/
