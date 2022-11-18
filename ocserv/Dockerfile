@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.16
 
 ENV OCSERV_VERSION 1.1.2
 ENV CA_CN SAMPLE CA
@@ -37,10 +37,9 @@ RUN set -ex \
     && make install \
     && cd .. \
     && rm -rf ocserv-$OCSERV_VERSION \
-    && mkdir /opt/ocserv/ && touch /opt/ocserv/ocpasswd \
+    && mkdir /opt/ocserv/ && mkdir /etc/ocserv/certs && touch /opt/ocserv/ocpasswd \
     && apk add  gnutls linux-pam krb5-libs libtasn1 oath-toolkit-liboath nettle libev protobuf-c musl lz4-libs libseccomp readline libnl3 iptables
 WORKDIR /etc/ocserv
-COPY ocserv.conf /etc/ocserv/ocserv.conf
 COPY entrypoint.sh /entrypoint.sh
 EXPOSE 443/tcp
 EXPOSE 443/udp
