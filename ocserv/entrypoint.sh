@@ -3,7 +3,7 @@ set -e
 iptables -t nat -A POSTROUTING -j MASQUERADE
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 sysctl -p
-
+if [ ! -f /etc/ocserv/certs/server-key.pem ] || [ ! -f /etc/ocserv/certs/server-cert.pem ]; then
 
                 CA_CN="VPN CA"
                 CA_ORG="Big Corp"
@@ -13,6 +13,7 @@ sysctl -p
                 SRV_DAYS=9999
 
         # No certification found, generate one
+        mkdir /etc/ocserv/certs
         cd /etc/ocserv/certs
         certtool --generate-privkey --outfile ca-key.pem
         cat > ca.tmpl <<-EOCA
@@ -36,5 +37,5 @@ sysctl -p
         tls_www_server
         EOSRV
         certtool --generate-certificate --load-privkey server-key.pem --load-ca-certificate ca.pem --load-ca-privkey ca-key.pem --template server.tmpl --outfile server-cert.pem
-
+fi
 exec "$@"
