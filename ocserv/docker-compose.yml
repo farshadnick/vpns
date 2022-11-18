@@ -1,13 +1,12 @@
 version: "3"
 services:
   ocserv:
-    container_name: farshadnikfetrat/ocserv:latest
-    image: osc:1
+    container_name: ocserv
+    image: farshadnikfetrat/ocserv:latest
     privileged: true
     ports:
     - 1080:443/tcp
     - 1080:443/udp
     volumes:
     - ${PWD}/conf/:/etc/ocserv/
-
 
