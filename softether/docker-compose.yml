@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  softether:
+    image: croc/softether
+    volumes:
+      - './logs/packet_log:/opt/vpnserver/packet_log'
+      - './logs/security_log:/opt/vpnserver/security_log'
+      - './logs/server_log:/opt/vpnserver/server_log'
+      - './config/backup.vpn_server.config:/opt/vpnserver/backup.vpn_server.config'
+      - './config/chain_certs:/opt/vpnserver/chain_certs'
+      - './config/vpn_server.config:/opt/vpnserver/vpn_server.config'
+      - '/etc/localtime:/etc/localtime:ro'
+    privileged: true
+# with host mode - maybe the services on vpn host is not accessible, like http, etc..
+#    network_mode: host
+# with normal mode - you cant add any local bridge, but every service on vpn host is accessible
+    ports:
+      - '5443:5443'
+      - '5555:5555'
+      - '55555:55555'
+    restart: unless-stopped 
