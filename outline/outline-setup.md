@@ -14,7 +14,7 @@ YOU CAN EASILY ADD KEY
 ![image](https://user-images.githubusercontent.com/88557305/206035290-e1291b45-6e5f-41c4-8c54-298b3a80e44f.png)
 
 
-# UUTLINE CLIENT
+# OUTLINE CLIENT
 
 ```
 
