@@ -1,7 +1,7 @@
 
 # Install Outline
 ```
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/farshadnick/vpns/main/outline/outline.sh)"
 ```
 it will give you an api key which you have to **insert in Outline manager**
 
