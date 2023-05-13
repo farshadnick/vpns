@@ -16,7 +16,7 @@ services:
 #    network_mode: host
 # with normal mode - you cant add any local bridge, but every service on vpn host is accessible
     ports:
-      - '5443:443'
+      - '5443:5443'
       - '5555:5555'
       - '55555:55555'
     restart: unless-stopped 
